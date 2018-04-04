@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<agent-input clean='true' temporary='true'>
+  <variables>
+    <variable name='sharedLocation' value='<%= node['nc_tools']['app_dir'] %>/IBMIMShared'/>
+    <variable name='installLocation' value='<%= node['nc_tools']['nc_dir'] %>'/>
+  </variables>
+  <server>
+    <repository location='file:<%= node['nc_tools']['install_dir'] %>/nco-p-mttrapd_20_0/'/>
+    <repository location='file:<%= node['nc_tools']['install_dir'] %>/nco-p-tivoli-eif_13_0/'/>
+  </server>
+  <profile id='IBM Tivoli Netcool OMNIbus' installLocation='${installLocation}'>
+    <data key='user.migratedata,com.ibm.tivoli.omnibus.core' value='false'/>
+  </profile>
+  <install>
+    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.nco-p-mttrapd' version='1.20.0.2' features='nco-p-mttrapd'/>
+    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.nco-p-tivoli-eif' version='1.13.0.7' features='nco-p-tivoli-eif'/>
+  </install>
+  <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
+</agent-input>

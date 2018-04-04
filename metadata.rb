@@ -1,6 +1,6 @@
 name 'nc_tools'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Ed Overton'
+maintainer_email 'e.overton@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures nc_tools'
 long_description 'Installs/Configures nc_tools'
@@ -18,3 +18,4 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/nc_tools'
+depends 'delivery-truck'

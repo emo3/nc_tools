@@ -11,11 +11,11 @@ provisioner:
   product_name: chefdk
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: centos-7.4
 
 suites:
   - name: default
     run_list:
+      - recipe[delivery_build::default]
       - recipe[test]
     attributes:
