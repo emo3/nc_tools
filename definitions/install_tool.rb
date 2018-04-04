@@ -1,10 +1,10 @@
 define :install_tool,
-       tool_pkg: '1',
-       tool_nam: '2',
-       tool_ver: '3',
-       tool_dir: '4',
-       tool_ins: '5',
-       tool_loc: '6' do
+       tool_pkg: '',
+       tool_nam: '',
+       tool_ver: '',
+       tool_dir: '',
+       tool_ins: '',
+       tool_loc: '' do
   puts "tool package   = #{params[:tool_pkg]}"
   puts "tool name      = #{params[:tool_nam]}"
   puts "tool version   = #{params[:tool_ver]}"
@@ -47,6 +47,11 @@ define :install_tool,
 
   template "#{node['nc_tools']['temp_dir']}/install_nc_tool.xml" do
     source 'install_nc_tool.xml.erb'
+    variables(
+      tool_nam: params[:tool_nam],
+      tool_dir: params[:tool_dir],
+      tool_ver: params[:tool_ver]
+    )
     not_if { File.exist?(params[:tool_loc]) }
     mode 0755
   end

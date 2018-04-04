@@ -7,8 +7,8 @@
   <server>
     <!-- Installation location for: -->
     <!--   IBM Tivoli Netcool/OMNIbus -->
-    <!--   Netcool/OMNIbus Tool <%= node['nc_tools']['tool_name'] %> -->
-    <repository location='file:<%= node['nc_tools']['tool_dir'] %>'/>
+    <!--   Netcool/OMNIbus Tool <%= @tool_nam %> -->
+    <repository location='file:<%= @tool_dir %>'/>
   </server>
   <profile id='IBM Tivoli Netcool OMNIbus' installLocation='${installLocation}'>
     <!-- Data for IBM Tivoli Netcool/OMNIbus: -->
@@ -16,8 +16,8 @@
     <data key='user.migratedata,com.ibm.tivoli.omnibus.core' value='false'/>
   </profile>
   <install>
-    <!-- Netcool/OMNIbus Tool <%= node['nc_tools']['tool_name'] %> <%= node['nc_tools']['tool_ver'] %> -->
-    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.<%= node['nc_tools']['tool_name'] %>' version='<%= node['nc_tools']['tool_ver'] %>' features='<%= node['nc_tools']['tool_name'] %>'/>
+    <!-- Netcool/OMNIbus Tool <%= @tool_nam %> <%= @tool_ver %> -->
+    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.<%= @tool_nam %>' version='<%= @tool_ver %>' features='<%= @tool_nam %>'/>
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
 </agent-input>
