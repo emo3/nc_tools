@@ -24,6 +24,7 @@ suites:
   - name: default
     run_list:
       - recipe[nc_tools::install_gw_remedy]
+      - recipe[nc_tools::install_gw_jdbc]
     verifier:
       inspec_tests:
         - test/integration/default
