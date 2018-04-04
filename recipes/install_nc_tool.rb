@@ -12,6 +12,7 @@ remote_file "#{node['nc_tools']['install_dir']}/#{node['nc_tools']['package']}" 
   source "#{node['nc_tools']['media_url']}/#{node['nc_tools']['package']}"
   not_if { File.exist?("#{node['nc_tools']['install_dir']}/#{node['nc_tools']['package']}") }
   not_if { File.exist?(node['nc_tools']['tool_inst']) }
+  not_if { File.exist?(node['nc_tools']['tool_loc']) }
   user node['nc_tools']['nc_act']
   group node['nc_tools']['nc_grp']
   mode '0755'
@@ -22,8 +23,8 @@ end
 execute 'unzip_package' do
   command "unzip -q #{node['nc_tools']['install_dir']}/#{node['nc_tools']['package']}"
   cwd node['nc_tools']['install_dir']
-  not_if { File.exist?("#{node['nc_tools']['ob_dir']}/#{node['nc_tools']['package']}") }
   not_if { File.exist?(node['nc_tools']['tool_inst']) }
+  not_if { File.exist?(node['nc_tools']['tool_loc']) }
   user node['nc_tools']['nc_act']
   group node['nc_tools']['nc_grp']
   umask '022'
