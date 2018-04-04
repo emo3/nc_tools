@@ -3,6 +3,7 @@ directory node['nc_tools']['install_dir'] do
   user node['nc_tools']['nc_act']
   group node['nc_tools']['nc_grp']
   recursive true
+  not_if { File.exist?(node['nc_tools']['tool_loc']) }
   mode '0755'
 end
 
@@ -10,6 +11,7 @@ end
 remote_file "#{node['nc_tools']['install_dir']}/#{node['nc_tools']['package']}" do
   source "#{node['nc_tools']['media_url']}/#{node['nc_tools']['package']}"
   not_if { File.exist?("#{node['nc_tools']['install_dir']}/#{node['nc_tools']['package']}") }
+  not_if { File.exist?(node['nc_tools']['tool_inst']) }
   user node['nc_tools']['nc_act']
   group node['nc_tools']['nc_grp']
   mode '0755'
@@ -21,6 +23,7 @@ execute 'unzip_package' do
   command "unzip -q #{node['nc_tools']['install_dir']}/#{node['nc_tools']['package']}"
   cwd node['nc_tools']['install_dir']
   not_if { File.exist?("#{node['nc_tools']['ob_dir']}/#{node['nc_tools']['package']}") }
+  not_if { File.exist?(node['nc_tools']['tool_inst']) }
   user node['nc_tools']['nc_act']
   group node['nc_tools']['nc_grp']
   umask '022'
@@ -29,6 +32,7 @@ end
 
 template "#{node['nc_tools']['temp_dir']}/install_nc_tool.xml" do
   source 'install_nc_tool.xml.erb'
+  not_if { File.exist?(node['nc_tools']['tool_loc']) }
   mode 0755
 end
 
@@ -37,6 +41,7 @@ execute 'install_tool' do
   input #{node['nc_tools']['temp_dir']}/install_nc_tool.xml \
   -log #{node['nc_tools']['temp_dir']}/install-nc_tool_log.xml \
   -acceptLicense"
+  not_if { File.exist?(node['nc_tools']['tool_loc']) }
   user node['nc_tools']['nc_act']
   group node['nc_tools']['nc_grp']
   umask '022'
@@ -44,10 +49,12 @@ execute 'install_tool' do
 end
 
 file "#{node['nc_tools']['temp_dir']}/install_nc_tool.xml" do
+  only_if { File.exist?(node['nc_tools']['tool_loc']) }
   action :delete
 end
 
 directory node['nc_tools']['install_dir'] do
+  only_if { File.exist?(node['nc_tools']['tool_loc']) }
   recursive true
   action :delete
 end
