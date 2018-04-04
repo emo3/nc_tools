@@ -23,7 +23,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[nc_tools::install_nc_tool]
+      - recipe[nc_tools::install_gw_remedy]
     verifier:
       inspec_tests:
         - test/integration/default

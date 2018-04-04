@@ -1,4 +1,3 @@
-node.default['objsrv']['gw_name'] 
 # Create the dir's that are needed by netcool gateways
 directory node['objsrv']['gate_dir'] do
   user node['objsrv']['nc_act']

@@ -5,15 +5,19 @@
     <variable name='installLocation' value='<%= node['nc_tools']['nc_dir'] %>'/>
   </variables>
   <server>
-    <repository location='file:<%= node['nc_tools']['install_dir'] %>/nco-p-mttrapd_20_0/'/>
-    <repository location='file:<%= node['nc_tools']['install_dir'] %>/nco-p-tivoli-eif_13_0/'/>
+    <!-- Installation location for: -->
+    <!--   IBM Tivoli Netcool/OMNIbus -->
+    <!--   Netcool/OMNIbus Tool <%= node['nc_tools']['tool_name'] %> -->
+    <repository location='file:<%= node['nc_tools']['tool_dir'] %>'/>
   </server>
   <profile id='IBM Tivoli Netcool OMNIbus' installLocation='${installLocation}'>
+    <!-- Data for IBM Tivoli Netcool/OMNIbus: -->
+    <!-- Migrate OMNIbus data -->
     <data key='user.migratedata,com.ibm.tivoli.omnibus.core' value='false'/>
   </profile>
   <install>
-    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.nco-p-mttrapd' version='1.20.0.2' features='nco-p-mttrapd'/>
-    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.nco-p-tivoli-eif' version='1.13.0.7' features='nco-p-tivoli-eif'/>
+    <!-- Netcool/OMNIbus Tool <%= node['nc_tools']['tool_name'] %> <%= node['nc_tools']['tool_ver'] %> -->
+    <offering profile='IBM Tivoli Netcool OMNIbus' id='com.ibm.tivoli.omnibus.integrations.<%= node['nc_tools']['tool_name'] %>' version='<%= node['nc_tools']['tool_ver'] %>' features='<%= node['nc_tools']['tool_name'] %>'/>
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
 </agent-input>
