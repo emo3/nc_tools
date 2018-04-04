@@ -1,4 +1,6 @@
-# This will setup the gateways
+# define variables on for Remedy
+default['nc_tools']['remedy']  = 'P_REMEDY_GATE'
+default['nc_tools']['rdy_dir'] = "#{node['nc_tools']['ob_dir']}/etc/#{node['nc_tools']['remedy']}"
 # create the Remedy Gateway dir
 directory node['nc_tools']['rdy_dir'] do
   user node['nc_tools']['nc_act']
