@@ -1,5 +1,5 @@
 # Install the Netcool tool bmc_remedy
-install_tool 'Remedy' do
+install_tool 'Remedy Gateway' do
   tool_pkg 'Im-nco-g-bmc-remedy-3_0.zip'
   tool_nam 'nco-g-bmc-remedy'
   tool_ver '1.3.0.3'

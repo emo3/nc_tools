@@ -1,5 +1,5 @@
 # Install the Netcool tool jdbc
-install_tool 'JDBC' do
+install_tool 'JDBC Gateway' do
   tool_pkg 'CN4FUEN.zip'
   tool_nam 'nco-g-jdbc'
   tool_ver '1.6.0.4'
