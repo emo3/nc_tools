@@ -1,10 +1,13 @@
-define :install_tool,
-       tool_pkg: '',
-       tool_nam: '',
-       tool_ver: '',
-       tool_dir: '',
-       tool_ins: '',
-       tool_loc: '' do
+resource_name :install_tool
+
+property :tool_pkg, String, default: ''
+property :tool_nam, String, default: ''
+property :tool_ver, String, default: ''
+property :tool_dir, String, default: ''
+property :tool_ins, String, default: ''
+property :tool_loc, String, default: ''
+
+action :install do
   puts "tool package   = #{params[:tool_pkg]}"
   puts "tool name      = #{params[:tool_nam]}"
   puts "tool version   = #{params[:tool_ver]}"

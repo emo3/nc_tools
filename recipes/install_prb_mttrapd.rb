@@ -6,4 +6,5 @@ install_tool 'Mttrapd Probe' do
   tool_dir node['nc_tools']['install_dir']
   tool_ins "#{node['nc_tools']['install_dir']}/install.txt"
   tool_loc "#{node['nc_tools']['ob_dir']}/probes/linux2x86/default/mttrapd.rules"
+  action :install
 end
