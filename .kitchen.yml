@@ -21,11 +21,11 @@ platforms:
   - name: mycsc-7.4
 
 suites:
-  - name: default
+  - name: nc_tools
     run_list:
-      - recipe[nc_base::do_prs]
-#      - recipe[nc_base::make_nc_base]
-#      - recipe[nc_tools::install_gw_java]
+#      - recipe[nc_base::do_prs]
+      - recipe[nc_base::make_nc_base]
+      - recipe[nc_tools::install_tools]
 #      - recipe[nc_tools::install_gw_jdbc]
 #      - recipe[nc_tools::install_gw_jdbc-reporting-scripts]
 #      - recipe[nc_tools::install_gw_remedy]
