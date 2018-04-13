@@ -1,12 +1,12 @@
-# Install the Netcool tools defined in 'install' array
+# Install the Netcool tools defined between ()
 %w(nco-g-jdbc nco-g-bmc-remedy nco-p-mttrapd nco-p-tivoli-eif).each do |tool|
-  install_tool 'install tool' do
-    tool_pkg node['nc_tools'][tool]['tool_pkg']
+  install_tool 'do install tool' do
+    tool_package node['nc_tools'][tool]['tool_package']
     tool_url node['nc_tools'][tool]['tool_url']
     tool_dir node['nc_tools'][tool]['tool_dir']
-    tool_loc node['nc_tools'][tool]['tool_loc']
-    tool_ver node['nc_tools'][tool]['tool_ver']
-    tool_nam node['nc_tools'][tool]['tool_nam']
+    tool_lif node['nc_tools'][tool]['tool_lif']
+    tool_version node['nc_tools'][tool]['tool_version']
+    tool_name node['nc_tools'][tool]['tool_name']
     tool_imd node['nc_tools'][tool]['tool_imd']
     action :install
   end
