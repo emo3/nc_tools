@@ -1,13 +1,21 @@
 # nc_tools Cookbook
 
-Todo: Put a description of your cookbook here. Include at a high level the
-intent and purpose of why someone would use this cookbook.
+This cookbook will install probes and/or gateways that specified to install_tool
+resource.  See install_tools for an example.
+You are required to install Netcool/OMNIbus base software.
+Do by including with your .kitchen.yml "recipe[nc_base::make_nc_base]" or
+include_recipe 'nc_base::make_nc_base' within a recipe.
+This will install the latest versions of the IBM binaries.  If you know of
+newer, please let me know.
+This does NOT supply any IBM binaries, you will have to do that via PPA.
 
 ## Scope
 
-Todo: Identify the scope of what exactly this cookbook addresses. Are there any
-edge cases associated with your cookbook tasks that were decided not to be
-supported?
+Only install the probe/gateway software.
+This will !! NOT !!:
+1) configure/setup any probes and/or gateways
+  a. You will have to do that yourself
+2) configure/setup the Pad to control these
 
 ## Requirements
 
@@ -23,14 +31,14 @@ Also, tailor the subsections below:
 
 ### Chef
 
-- Chef 12
+- Chef 13
+- Chef SDK 2.5.3
+- Git 2.17
+- Vagrant 2.0.4
 
 ### Dependencies
 
-- lvm
-- limits
-- selinux
-- hostsfile
+- nc_base
 
 ## Usage
 

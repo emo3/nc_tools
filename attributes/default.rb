@@ -1,4 +1,4 @@
-default['nc_tools']['cots_dir']    = '/sfcots'
+default['nc_tools']['cots_dir']    = '/cots'
 default['nc_tools']['app_dir']     = "#{node['nc_tools']['cots_dir']}/apps"
 default['nc_tools']['nc_dir']      = "#{node['nc_tools']['app_dir']}/netcool"
 default['nc_tools']['ob_dir']      = "#{node['nc_tools']['nc_dir']}/omnibus"
@@ -7,8 +7,6 @@ default['nc_tools']['temp_dir']    = '/tmp'
 default['nc_tools']['media_url']   = 'http://10.1.1.30/media'
 default['nc_tools']['nc_act']      = 'netcool'
 default['nc_tools']['nc_grp']      = 'ncoadmin'
-default['nc_tools']['remedy']      = 'P_REMEDY_GATE'
-default['nc_tools']['rdy_dir']     = "#{node['nc_tools']['ob_dir']}/etc/#{node['nc_tools']['remedy']}"
 default['nc_tools'] = {
   'nco-g-java' => {
     'tool_name' => 'nco-g-java',
@@ -18,6 +16,7 @@ default['nc_tools'] = {
     'tool_url' => node['nc_tools']['media_url'],
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/java/jars/nco_g_java.jar",
     'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
   },
   'nco-g-jdbc' => {
     'tool_name' => 'nco-g-jdbc',
@@ -27,6 +26,7 @@ default['nc_tools'] = {
     'tool_url' => node['nc_tools']['media_url'],
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/gates/jdbc/default/jdbc.map",
     'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
   },
   'nco-g-jdbc-reporting-scripts' => {
     'tool_name' => 'nco-g-jdbc-reporting-scripts',
@@ -36,6 +36,7 @@ default['nc_tools'] = {
     'tool_url' => node['nc_tools']['media_url'],
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/gates/reporting/db2/default/db2.reporting.sql",
     'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
   },
   'nco-g-bmc-remedy' => {
     'tool_name' => 'nco-g-bmc-remedy',
@@ -45,6 +46,7 @@ default['nc_tools'] = {
     'tool_url' => node['nc_tools']['media_url'],
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/gates/bmc_remedy/default/bmc_remedy.map",
     'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
   },
   'nco-p-mttrapd' => {
     'tool_name' => 'nco-p-mttrapd',
@@ -54,6 +56,7 @@ default['nc_tools'] = {
     'tool_url' => node['nc_tools']['media_url'],
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/probes/linux2x86/default/mttrapd.rules",
     'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
   },
   'nco-p-tivoli-eif' => {
     'tool_name' => 'nco-p-tivoli-eif',
@@ -63,5 +66,6 @@ default['nc_tools'] = {
     'tool_url' => node['nc_tools']['media_url'],
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/probes/linux2x86/default/tivoli_eif.rules",
     'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
   },
 }
