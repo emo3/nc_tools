@@ -6,7 +6,7 @@
 
 require 'spec_helper'
 
-describe 'nc_tools::default' do
+describe 'nc_tools::install_tools' do
   context 'When all attributes are default, on an Redhat 7.4' do
     let(:chef_run) do
       # for a complete list of available platforms and versions see:

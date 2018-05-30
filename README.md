@@ -57,7 +57,7 @@ depends 'nc_tools'
 Then, in a recipe:
 
 ```
-include_recipe 'nc_tools::install_nc_tool'
+include_recipe 'nc_tools::install_tools'
 ```
 
 If your cookbook provides resources, be sure to include examples of how to use
