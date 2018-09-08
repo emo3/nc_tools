@@ -20,3 +20,4 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
 # source_url 'https://github.com/<insert_org_here>/nc_tools'
 depends 'delivery-truck'
 depends 'nc_base', '~> 0.1.0'
+depends 'server_utils', '~> 0.1.0'
