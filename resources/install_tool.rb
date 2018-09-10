@@ -30,8 +30,8 @@ action :install do
   uri = URI.parse("#{new_resource.tool_url}/#{new_resource.tool_package}")
   fname = ::File.basename(uri.path)
   fpath = ::File.join(new_resource.tool_dir, fname)
-  log "fname=#{fname}"
-  log "fpath=#{fpath}"
+  # log "fname=#{fname}"
+  # log "fpath=#{fpath}"
 
   directory new_resource.tool_dir do
     user new_resource.nc_act
