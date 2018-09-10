@@ -15,17 +15,17 @@ property :nc_grp, String, default: 'ncoadmin'
 property :temp_dir, String, default: '/tmp'
 
 action :install do
-  log "tool package = #{new_resource.tool_package}"
-  log "tool url = #{new_resource.tool_url}"
-  log "tool dir = #{new_resource.tool_dir}"
-  log "tool location installed file = #{new_resource.tool_lif}"
-  log "tool version = #{new_resource.tool_version}"
-  log "tool name = #{new_resource.tool_name}"
-  log "tool ncd = #{new_resource.tool_ncd}"
-  log "Installation Manager Dir = #{new_resource.tool_imd}"
-  log "netcool account = #{new_resource.nc_act}"
-  log "netcool group = #{new_resource.nc_grp}"
-  log "temp dir = #{new_resource.temp_dir}"
+  # log "tool package = #{new_resource.tool_package}"
+  # log "tool url = #{new_resource.tool_url}"
+  # log "tool dir = #{new_resource.tool_dir}"
+  # log "tool location installed file = #{new_resource.tool_lif}"
+  # log "tool version = #{new_resource.tool_version}"
+  # log "tool name = #{new_resource.tool_name}"
+  # log "tool ncd = #{new_resource.tool_ncd}"
+  # log "Installation Manager Dir = #{new_resource.tool_imd}"
+  # log "netcool account = #{new_resource.nc_act}"
+  # log "netcool group = #{new_resource.nc_grp}"
+  # log "temp dir = #{new_resource.temp_dir}"
 
   uri = URI.parse("#{new_resource.tool_url}/#{new_resource.tool_package}")
   fname = ::File.basename(uri.path)
