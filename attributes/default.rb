@@ -68,4 +68,14 @@ default['nc_tools'] = {
     'tool_imd' => node['nc_tools']['app_dir'],
     'tool_ncd' => node['nc_tools']['nc_dir'],
   },
+  'nco-p-stdin' => {
+    'tool_name' => 'nco-p-stdin',
+    'tool_package' => 'CN1H4EN.zip',
+    'tool_version' => '1.4.0.5113',
+    'tool_dir' => node['nc_tools']['install_dir'],
+    'tool_url' => node['nc_tools']['media_url'],
+    'tool_lif' => "#{node['nc_tools']['ob_dir']}/probes/linux2x86/default/stdin.rules",
+    'tool_imd' => node['nc_tools']['app_dir'],
+    'tool_ncd' => node['nc_tools']['nc_dir'],
+  },
 }
