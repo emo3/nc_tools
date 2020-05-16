@@ -1,5 +1,4 @@
-default['nc_tools']['cots_dir']    = '/cots'
-default['nc_tools']['app_dir']     = "#{node['nc_tools']['cots_dir']}/apps"
+default['nc_tools']['app_dir']     = '/apps'
 default['nc_tools']['nc_dir']      = "#{node['nc_tools']['app_dir']}/netcool"
 default['nc_tools']['ob_dir']      = "#{node['nc_tools']['nc_dir']}/omnibus"
 default['nc_tools']['install_dir'] = "#{node['nc_tools']['app_dir']}/media"
