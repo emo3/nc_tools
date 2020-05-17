@@ -26,6 +26,8 @@ default['nc_tools'] = {
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/gates/jdbc/default/jdbc.map",
     'tool_imd' => node['nc_tools']['app_dir'],
     'tool_ncd' => node['nc_tools']['nc_dir'],
+    'tool_cmd' => %w('alias start_jdbc="$OMNIHOME/bin/nco_pa_start -server <%= os_pa_name %> -user <%= nc_act %> -password <%= nc_pwd %> -process PrimaryPrimaryRemedyGateway\n'
+      'alias stop_jdbc="$OMNIHOME/bin/nco_pa_stop -server <%= os_pa_name %> -user <%= nc_act %> -password <%= nc_pwd %> -process PrimaryJDBCGateway'),
   },
   'nco-g-jdbc-reporting-scripts' => {
     'tool_name' => 'nco-g-jdbc-reporting-scripts',
