@@ -70,6 +70,8 @@ default['nc_tools'] = {
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/probes/linux2x86/default/mttrapd.rules",
     'tool_imd' => node['nc_tools']['app_dir'],
     'tool_ncd' => node['nc_tools']['nc_dir'],
+    'tool_cmd' => 'mtd',
+    'tool_srv' => 'MttrapdProbe',
   },
   'nco-p-tivoli-eif' => {
     'tool_name' => 'nco-p-tivoli-eif',
@@ -80,6 +82,8 @@ default['nc_tools'] = {
     'tool_lif' => "#{node['nc_tools']['ob_dir']}/probes/linux2x86/default/tivoli_eif.rules",
     'tool_imd' => node['nc_tools']['app_dir'],
     'tool_ncd' => node['nc_tools']['nc_dir'],
+    'tool_cmd' => 'eif',
+    'tool_srv' => 'EifProbe',
   },
   'nco-p-stdin' => {
     'tool_name' => 'nco-p-stdin',
