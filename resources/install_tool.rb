@@ -1,6 +1,6 @@
 require 'uri'
 
-resource_name :install_tool
+provides :install_tool
 
 property :tool_package, String, default: ''
 property :tool_url, String, default: ''
